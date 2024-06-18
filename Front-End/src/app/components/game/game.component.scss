@@ -1,0 +1,161 @@
+.decks-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.user-deck {
+  flex: 0 0 45%;
+  margin: 20px;
+  padding: 20px;
+  background: #ffffff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.opponent-deck {
+  flex: 0 0 50%;
+  margin: 20px;
+  padding: 10px;
+  background: #ffffff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.deck h3, .deck h2 {
+  color: #333;
+}
+
+.deck-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f1f1f1;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.player-card:hover {
+  transform: scale(1.02);
+  background-color: #e0e0e0;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+.player-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.player-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.player-info h4, .player-info p, .player-details p {
+  color: #333;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.player-info p {
+  color: #555;
+  font-size: 0.9em;
+  margin: 3px 0;
+}
+
+.rating {
+  font-size: 1.5em;
+  color: #f30d05; 
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.winner {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #28a745;
+  text-align: center;
+}
+
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.midfielder {
+  background-color: #f0e68c; /* Khaki */
+}
+
+.defender {
+  background-color: #98fb98; /* PaleGreen */
+}
+
+.goalkeeper {
+  background-color: #87cefa; /* LightSkyBlue */
+}
+
+.attacker {
+  background-color: #ffb6c1; /* LightPink */
+}
+
+.midfielder .player-info, 
+.defender .player-info, 
+.goalkeeper .player-info, 
+.attacker .player-info {
+  text-align: center;
+}

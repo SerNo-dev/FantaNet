@@ -1,0 +1,45 @@
+<div class="deck-container">
+  <h2 class="main-title">My Deck</h2>
+  
+  <div class="sections-container">
+    <div class="section purchased-players">
+      <h3 class="section-title">Purchased Players</h3>
+      <div *ngIf="giocatoriAcquistati.length > 0; else noPlayers" class="players-grid">
+        <div *ngFor="let giocatore of giocatoriAcquistati" class="player-card">
+          <img [src]="giocatore.photoUrl" alt="{{ giocatore.nome }} {{ giocatore.cognome }}">
+          <div class="player-info">
+            <h3>{{ giocatore.nome }} {{ giocatore.cognome }}</h3>
+            <p>Position: {{ giocatore.posizione }}</p>
+            <p>Price: {{ giocatore.prezzo }} credits</p>
+            <button class="add-to-deck-btn" (click)="addToDeck(giocatore)" [disabled]="isInDeck(giocatore)">Add to Deck</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noPlayers>
+        <p class="empty-message">No purchased players available.</p>
+      </ng-template>
+    </div>
+
+    <div class="section current-deck">
+      <h3 class="section-title">Current Deck</h3>
+      <div *ngIf="deck.length > 0; else emptyDeck" class="deck-grid">
+        <div *ngFor="let giocatore of deck" class="player-card">
+          <img [src]="giocatore.photoUrl" alt="{{ giocatore.nome }} {{ giocatore.cognome }}">
+          <div class="player-info">
+            <h3>{{ giocatore.nome }} {{ giocatore.cognome }}</h3>
+            <p>Position: {{ giocatore.posizione }}</p>
+            <p>Price: {{ giocatore.prezzo }} credits</p>
+            <button class="remove-btn" (click)="removeFromDeck(giocatore.id)">Remove</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #emptyDeck>
+        <p class="empty-message">The deck is empty.</p>
+      </ng-template>
+    </div>
+  </div>
+  
+  <div *ngIf="deckError" class="error-message">
+    {{ deckError }}
+  </div>
+</div>

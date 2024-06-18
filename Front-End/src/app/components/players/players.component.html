@@ -1,0 +1,17 @@
+<div class="players-grid">
+    <div *ngFor="let giocatore of giocatori" class="player-card">
+      <img [src]="giocatore.photoUrl" alt="{{ giocatore.nome }}">
+      <div class="player-info">
+        <h3>{{ giocatore.nome}} {{ giocatore.cognome }}</h3>
+        <p>Posizione: {{ giocatore.posizione }}</p>
+        <p>Prezzo: {{ giocatore.prezzo }} crediti</p>
+        <button (click)="addToCarrello(giocatore)">Aggiungi al carrello</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="pagination-controls">
+    <button (click)="previousPage()" [disabled]="page === 0">Precedente</button>
+    <button (click)="nextPage()" [disabled]="page + 1 >= totalPages">Successivo</button>
+  </div>
+  

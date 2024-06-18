@@ -1,0 +1,20 @@
+<div *ngIf="carrello && carrello.length > 0; else emptyCart">
+  <h2>Cart</h2>
+  <div class="carrello-grid">
+    <div *ngFor="let giocatore of carrello" class="player-card">
+      <img [src]="giocatore.photoUrl" alt="{{ giocatore.nome }} {{ giocatore.cognome }}">
+      <div class="player-info">
+        <h3>{{ giocatore.nome }} {{ giocatore.cognome }}</h3>
+        <p>Position: {{ giocatore.posizione }}</p>
+        <p>Price: {{ giocatore.prezzo }} credits</p>
+        <button class="remove-btn" (click)="removeFromCarrello(giocatore.id)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <div class="carrello-footer">
+    <button class="acquista-btn" (click)="confermaAcquisto()">Confirm Purchase</button>
+  </div>
+</div>
+<ng-template #emptyCart>
+  <p>The cart is empty.</p>
+</ng-template>

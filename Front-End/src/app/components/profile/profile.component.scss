@@ -1,0 +1,91 @@
+.container {
+    height: 87.4vh;
+  }
+  
+  .profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #ae9293 0%, #e6471b 100%);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Colore del testo */
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .profile-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-details {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .profile-details p {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .change-avatar {
+    margin-top: 20px;
+  }
+  
+  .change-avatar input {
+    display: block;
+    margin: 10px auto;
+  }
+  
+  .change-avatar button {
+    background-color: #ff6f61; /* Colore del pulsante */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .change-avatar button:hover {
+    background-color: #e55550; /* Colore del pulsante al passaggio del mouse */
+  }
+  
+  .alert {
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  
+    &.alert-info {
+      color: #31708f;
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+    }
+  
+    a {
+      color: #31708f;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  

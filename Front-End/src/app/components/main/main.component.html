@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row" *ngFor="let player of players; let i = index">
+      <ng-container *ngIf="i % 2 === 0">
+        <div class="col-md-6">
+          <app-card1 [player]="player"></app-card1>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <app-description [description]="player.description" [title]="player.title"></app-description>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="i % 2 !== 0">
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <app-description [description]="player.description" [title]="player.title"></app-description>
+        </div>
+        <div class="col-md-6">
+          <app-card1 [player]="player"></app-card1>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+
+

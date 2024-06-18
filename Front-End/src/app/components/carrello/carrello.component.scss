@@ -1,0 +1,93 @@
+.carrello-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.player-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.player-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.player-info {
+  margin-top: 10px;
+}
+
+.player-info h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.player-info p {
+  margin: 5px 0;
+  color: #777777;
+}
+
+.remove-btn {
+  background-color: #ff5a5f;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+  background-color: #ff1a1f;
+}
+
+.carrello-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.acquista-btn {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.acquista-btn:hover {
+  background-color: #218838;
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .carrello-grid {
+    grid-template-columns: 1fr;
+  }
+}

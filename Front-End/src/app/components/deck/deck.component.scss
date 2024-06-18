@@ -1,0 +1,123 @@
+.deck-container {
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.sections-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.section {
+  flex: 1;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2em;
+  color: #007bff;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.players-grid, .deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.player-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.player-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.player-info {
+  margin-top: 10px;
+}
+
+.player-info h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.player-info p {
+  margin: 5px 0;
+  color: #777777;
+}
+
+.add-to-deck-btn, .remove-btn {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+.add-to-deck-btn:hover, .remove-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555555;
+}
+
+@media (max-width: 900px) {
+  .sections-container {
+    flex-direction: column;
+  }
+
+  .players-grid, .deck-grid {
+    grid-template-columns: 1fr;
+  }
+}

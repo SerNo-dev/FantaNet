@@ -1,0 +1,16 @@
+<div class="profile-container">
+  <h2>Profilo Utente</h2>
+  <div class="profile-info">
+    <img *ngIf="user?.avatar" [src]="user?.avatar" alt="Avatar" class="profile-avatar">
+    <div class="profile-details">
+      <p><strong>Nome Utente:</strong> {{ user?.username }}</p>
+      <p><strong>Email:</strong> {{ user?.email }}</p>
+      <p><strong>Crediti:</strong> {{ user?.crediti }}</p>
+    </div>
+  </div>
+  <div class="change-avatar">
+    <h3>Cambia Avatar</h3>
+    <input type="file" (change)="onFileSelected($event)">
+    <button (click)="uploadAvatar()">Carica</button>
+  </div>
+</div>

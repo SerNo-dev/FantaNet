@@ -1,0 +1,75 @@
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .player-card {
+    position: relative;
+    width: 220px; /* Aumentata la larghezza della card */
+    height: 300px; /* Aumentata l'altezza della card */
+    background-color: #333; /* Sfondo scuro */
+    color: #fff; /* Colore del testo bianco per contrasto */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Ombra più scura */
+    transition: transform 0.3s;
+    overflow: hidden;
+  }
+  
+  .player-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .player-card img {
+    width: 80px; /* Ridotta la larghezza per aumentare lo spazio per il testo */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Maggiore spazio inferiore */
+  }
+  
+  .player-info {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo semi-trasparente per migliorare il contrasto */
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .player-info h3 {
+    margin: 5px 0;
+    font-size: 1.1em;
+  }
+  
+  .player-info p {
+    margin: 3px 0;
+    font-size: 0.9em;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+  }
+  
+  .pagination-controls button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,32 @@
+.game-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuisce gli elementi verticalmente all'interno della carta */
+    height: 90%; /* Altezza massima della carta */
+    border: 1px solid #ddd; /* Bordo */
+    border-radius: 40px; /* Bordi arrotondati */
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ombra */
+    width: 70%; /* Larghezza della carta */
+}
+
+.game-card:hover {
+    transform: translateX(40px);
+}
+
+.player-silhouette {
+    width: 100%;
+    height: 500px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.player-silhouette-inner {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/imgs/Card1.jpg'); /* Immagine della sagoma del calciatore */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
