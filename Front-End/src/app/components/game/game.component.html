@@ -7,67 +7,79 @@
   </div>
 
   <div class="decks-container">
-    <div class="deck user-deck">
-      <h3>Your Deck</h3>
-      <div class="deck-grid">
-        <div 
-          class="player-card"
-          [ngClass]="{
-            'midfielder': player.giocatore.posizione === 'Midfielder',
-            'defender': player.giocatore.posizione === 'Defender',
-            'goalkeeper': player.giocatore.posizione === 'Goalkeeper',
-            'attacker': player.giocatore.posizione === 'Attacker'
-          }"
-          *ngFor="let player of userDeck"
-        >
-          <div class="player-info">
-            <img [src]="player.giocatore.photoUrl" alt="{{ player.giocatore.nome }} {{ player.giocatore.cognome }}">
-            <div class="player-details">
-              <h4>{{ player.giocatore.nome }} {{ player.giocatore.cognome }}</h4>
-              <p>Position: {{ player.giocatore.posizione }}</p>
-              <p class="rating">Rating: {{ player.rating !== null ? player.rating : 'No Rating' }}</p>
-              <div *ngIf="player.fixture">
-                <p>Fixture: {{ player.fixture.homeTeamName }} vs {{ player.fixture.awayTeamName }}</p>
-                <p>Date: {{ player.fixture.date | date }}</p>
+    <div class="user-deck-container">
+      <div class="user-info" *ngIf="user">
+        <img [src]="user.avatar || 'default-avatar.png'" alt="{{ user.username }}" class="user-avatar">
+        <h3>{{ user.username }}</h3>
+      </div>
+      <div class="deck user-deck">
+        <h3>Your Deck</h3>
+        <div class="deck-grid">
+          <div 
+            class="player-card"
+            [ngClass]="{
+              'midfielder': player.giocatore.posizione === 'Midfielder',
+              'defender': player.giocatore.posizione === 'Defender',
+              'goalkeeper': player.giocatore.posizione === 'Goalkeeper',
+              'attacker': player.giocatore.posizione === 'Attacker'
+            }"
+            *ngFor="let player of userDeck"
+          >
+            <div class="player-info">
+              <img [src]="player.giocatore.photoUrl" alt="{{ player.giocatore.nome }} {{ player.giocatore.cognome }}">
+              <div class="player-details">
+                <h4>{{ player.giocatore.nome }} {{ player.giocatore.cognome }}</h4>
+                <p>Position: {{ player.giocatore.posizione }}</p>
+                <p class="rating">Rating: {{ player.rating !== null ? player.rating : 'No Rating' }}</p>
+                <div *ngIf="player.fixture">
+                  <p>Fixture: {{ player.fixture.homeTeamName }} vs {{ player.fixture.awayTeamName }}</p>
+                  <p>Date: {{ player.fixture.date | date }}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="team-info" *ngIf="player.team">
-            <img [src]="player.team.logo" alt="{{ player.team.name }}" class="team-logo">
-            <p>Team: {{ player.team.name }}</p>
+            <div class="team-info" *ngIf="player.team">
+              <img [src]="player.team.logo" alt="{{ player.team.name }}" class="team-logo">
+              <p>Team: {{ player.team.name }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="deck opponent-deck" *ngIf="opponent">
-      <h2>Opponent: {{ opponent.username }}</h2>
-      <div class="deck-grid" *ngIf="opponentDeck.length">
-        <div 
-          class="player-card"
-          [ngClass]="{
-            'midfielder': player.giocatore.posizione === 'Midfielder',
-            'defender': player.giocatore.posizione === 'Defender',
-            'goalkeeper': player.giocatore.posizione === 'Goalkeeper',
-            'attacker': player.giocatore.posizione === 'Attacker'
-          }"
-          *ngFor="let player of opponentDeck"
-        >
-          <div class="player-info">
-            <img [src]="player.giocatore.photoUrl" alt="{{ player.giocatore.nome }} {{ player.giocatore.cognome }}">
-            <div class="player-details">
-              <h4>{{ player.giocatore.nome }} {{ player.giocatore.cognome }}</h4>
-              <p>Position: {{ player.giocatore.posizione }}</p>
-              <p class="rating">Rating: {{ player.rating !== null ? player.rating : 'No Rating' }}</p>
-              <div *ngIf="player.fixture">
-                <p>Fixture: {{ player.fixture.homeTeamName }} vs {{ player.fixture.awayTeamName }}</p>
-                <p>Date: {{ player.fixture.date | date }}</p>
+    <div class="opponent-deck-container" *ngIf="opponentDeck.length">
+      <div class="opponent-info" *ngIf="opponent">
+        <img [src]="opponent.avatar || 'default-avatar.png'" alt="{{ opponent.username }}" class="user-avatar">
+        <h3>{{ opponent.username }}</h3>
+      </div>
+      <div class="deck opponent-deck">
+        <h3>Opponent's Deck</h3>
+        <div class="deck-grid">
+          <div 
+            class="player-card"
+            [ngClass]="{
+              'midfielder': player.giocatore.posizione === 'Midfielder',
+              'defender': player.giocatore.posizione === 'Defender',
+              'goalkeeper': player.giocatore.posizione === 'Goalkeeper',
+              'attacker': player.giocatore.posizione === 'Attacker'
+            }"
+            *ngFor="let player of opponentDeck"
+          >
+            <div class="player-info">
+              <img [src]="player.giocatore.photoUrl" alt="{{ player.giocatore.nome }} {{ player.giocatore.cognome }}">
+              <div class="player-details">
+                <h4>{{ player.giocatore.nome }} {{ player.giocatore.cognome }}</h4>
+                <p>Position: {{ player.giocatore.posizione }}</p>
+                <p class="rating">Rating: {{ player.rating !== null ? player.rating : 'No Rating' }}</p>
+                <div *ngIf="player.fixture">
+                  <p>Fixture: {{ player.fixture.homeTeamName }} vs {{ player.fixture.awayTeamName }}</p>
+                  <p>Date: {{ player.fixture.date | date }}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="team-info" *ngIf="player.team">
-            <img [src]="player.team.logo" alt="{{ player.team.name }}" class="team-logo">
-            <p>Team: {{ player.team.name }}</p>
+            <div class="team-info" *ngIf="player.team">
+              <img [src]="player.team.logo" alt="{{ player.team.name }}" class="team-logo">
+              <p>Team: {{ player.team.name }}</p>
+            </div>
           </div>
         </div>
       </div>

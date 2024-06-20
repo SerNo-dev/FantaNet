@@ -1,0 +1,17 @@
+<div *ngIf="user" class="replays-container">
+    <h2>{{ user.username }}'s Replays</h2>
+    <div *ngIf="matches.length; else noMatches" class="matches-container">
+      <div *ngFor="let match of matches" class="match-card">
+        <div class="match-info">
+          <p class="match-date">{{ match.matchDate | date: 'short' }}</p>
+          <p class="match-players">{{ match.user1.username }} vs {{ match.user2.username }}</p>
+          <p class="match-score">Score: {{ match.user1Score }} - {{ match.user2Score }}</p>
+          <p class="match-winner">Winner: {{ match.winner.username }}</p>
+        </div>
+      </div>
+    </div>
+    <ng-template #noMatches>
+      <p class="no-matches">No matches found.</p>
+    </ng-template>
+  </div>
+  

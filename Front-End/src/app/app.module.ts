@@ -27,6 +27,11 @@ import { CommonModule } from '@angular/common';
 import { AuthGuard } from './auth/auth.guard';
 import { DeckComponent } from './components/deck/deck.component';
 import { GameComponent } from './components/game/game.component';
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ReplayComponent } from './components/replay/replay.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:8081', options: {} };
 const routes: Route[] = [
   {
     path: '',
@@ -47,7 +52,8 @@ const routes: Route[] = [
     children: [
       { path: 'players', component: PlayersComponent },
       { path: 'game', component: GameComponent,canActivate: [AuthGuard] },
-      { path: 'deck', component: DeckComponent, canActivate: [AuthGuard] }
+      { path: 'deck', component: DeckComponent, canActivate: [AuthGuard] },
+      { path: 'replay', component: ReplayComponent }
 ]},  { path: 'carrello', component: CarrelloComponent, canActivate: [AuthGuard] },
 // { path: 'deck', component: DeckComponent, canActivate: [AuthGuard] },
 { path: '**', redirectTo: '' }
@@ -68,7 +74,8 @@ const routes: Route[] = [
     PlayersComponent,
     CarrelloComponent,
     DeckComponent,
-    GameComponent
+    GameComponent,
+    ReplayComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +83,8 @@ const routes: Route[] = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    CommonModule 
+    CommonModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [
     AuthService,

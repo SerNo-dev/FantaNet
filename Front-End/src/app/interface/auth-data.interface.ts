@@ -10,4 +10,5 @@ export interface AuthData {
   carrello: Giocatore[];
   deck: Giocatore[];
   giocatoriAcquistati: Giocatore[];
+  avatarUrl:string;
 }
