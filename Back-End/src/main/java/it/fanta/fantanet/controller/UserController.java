@@ -156,10 +156,10 @@ public class UserController {
     }
 
     @GetMapping("/random")
-    public ResponseEntity<Utente> getRandomUser() {
-        Optional<Utente> randomUser = userService.getRandomUser();
-        return randomUser.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    public ResponseEntity<Utente> getRandomUser(@RequestParam Long currentUserId) {
+        return userService.getRandomUser(currentUserId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
 

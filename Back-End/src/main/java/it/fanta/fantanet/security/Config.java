@@ -37,6 +37,7 @@ public class Config {
             http.requestMatchers("/api/voti/**", "/api/giocatore/**","/api/giocatori/**", "/api/fixtures/**", "/api/team/**").permitAll();
             http.requestMatchers(HttpMethod.POST, "/auth/**").permitAll();
             http.requestMatchers(HttpMethod.POST, "/api/users/*/carrello/*").authenticated();
+            http.requestMatchers(HttpMethod.POST, "/api/game/**").authenticated();
             http.anyRequest().authenticated();
         });
 

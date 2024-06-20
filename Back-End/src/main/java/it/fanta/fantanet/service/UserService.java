@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -149,14 +150,19 @@ public class UserService {
 
 
 
-    public Optional<Utente> getRandomUser() {
-        List<Utente> users = userRepository.findAll();
+    public Optional<Utente> getRandomUser(Long currentUserId) {
+        List<Utente> users = userRepository.findAll().stream()
+                .filter(user -> !user.getId().equals(currentUserId))
+                .collect(Collectors.toList());
+
         if (users.isEmpty()) {
             return Optional.empty();
         }
         Random random = new Random();
         return Optional.of(users.get(random.nextInt(users.size())));
     }
+
+
 
 
 
