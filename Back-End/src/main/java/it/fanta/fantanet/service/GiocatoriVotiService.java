@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class GiocatoriVotiService {
@@ -19,6 +17,7 @@ public class GiocatoriVotiService {
 
     @Autowired
     private UserRepository userRepository;
+
     public List<GiocatoriVotiNellePartite> getAllVoti() {
         return giocatoriVotiNellePartiteRepository.findAll();
     }
@@ -62,7 +61,18 @@ public class GiocatoriVotiService {
             giocatore.setPhotoUrl((String) result[8]);
 
             voto.setGiocatore(giocatore);
-            voto.setRating((Double) result[9]);
+
+            // Verifica e conversione del rating
+            if (result[9] != null) {
+                try {
+                    voto.setRating(Double.parseDouble(result[9].toString()));
+                } catch (NumberFormatException e) {
+                    System.err.println("Rating non valido per il giocatore " + giocatore.getNome() + ": " + result[9]);
+                    voto.setRating(0.0);
+                }
+            } else {
+                voto.setRating(0.0);
+            }
 
             if (result[10] != null) {
                 team.setId((Integer) result[10]);
@@ -91,5 +101,4 @@ public class GiocatoriVotiService {
 
         return votiList;
     }
-
 }

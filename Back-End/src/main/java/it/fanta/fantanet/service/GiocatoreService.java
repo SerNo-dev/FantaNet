@@ -16,7 +16,7 @@ public class GiocatoreService {
         giocatoreRepository.saveAll(giocatori);
     }
     public Giocatore findByApiId(Long apiId) {
-        return giocatoreRepository.findByApiId(apiId);
+        return (Giocatore) giocatoreRepository.findByApiId(apiId);
     }
 
     public List<Giocatore> getAllGiocatori() {

@@ -16,7 +16,7 @@ public interface GiocatoriVotiNellePartiteRepository extends JpaRepository<Gioca
     List<GiocatoriVotiNellePartite> findByGiocatoreIdAndGiocatoreIn(Integer giocatoreId, List<Giocatore> giocatori);
 
     @Query(value = """
-    SELECT 
+    SELECT
         g.id AS giocatore_id,
         g.api_id AS giocatore_api_id,
         g.nome AS giocatore_nome,
@@ -41,24 +41,24 @@ public interface GiocatoriVotiNellePartiteRepository extends JpaRepository<Gioca
         f.away_team_id AS fixture_away_team_id,
         f.home_team_name AS fixture_home_team_name,
         f.away_team_name AS fixture_away_team_name
-    FROM 
+    FROM
         user_deck ud
-    JOIN 
+    JOIN
         giocatore g ON ud.giocatore_id = g.id
-    LEFT JOIN 
-        (SELECT DISTINCT ON (gvnp.giocatore_id) 
-             gvnp.giocatore_id, 
+    LEFT JOIN
+        (SELECT DISTINCT ON (gvnp.giocatore_id)
+             gvnp.giocatore_id,
              gvnp.rating AS voto,
              gvnp.team_id,
              gvnp.fixture_id
-         FROM 
+         FROM
              giocatori_voti_nelle_partite gvnp
          WHERE gvnp.rating IS NOT NULL
-         ORDER BY gvnp.giocatore_id, RANDOM()) subquery 
+         ORDER BY gvnp.giocatore_id, RANDOM()) subquery
     ON g.id = subquery.giocatore_id
     LEFT JOIN team t ON subquery.team_id = t.id
     LEFT JOIN fixture f ON subquery.fixture_id = f.id
-    WHERE 
+    WHERE
         ud.user_id = :userId
     """, nativeQuery = true)
     List<Object[]> findVotiByUserDeckWithDefault(@Param("userId") Long userId);

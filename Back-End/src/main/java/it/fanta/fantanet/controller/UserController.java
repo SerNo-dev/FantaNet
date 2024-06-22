@@ -62,25 +62,25 @@ public class UserController {
 //        return null;
 //    }
 
-    @GetMapping("/{userId}/voti")
-    public List<GiocatoriVotiNellePartite> getVotiPerUtente(@PathVariable Long userId) {
-        Optional<Utente> optionalUtente = userService.getUserById(userId);
-        if (optionalUtente.isPresent()) {
-            Utente utente = optionalUtente.get();
-            return giocatoriVotiNellePartiteRepository.findByGiocatoreIn(utente.getGiocatoriAcquistati());
-        }
-        return null;
-    }
-
-    @GetMapping("/{userId}/voti/{giocatoreId}")
-    public List<GiocatoriVotiNellePartite> getVotiPerUtenteEGiocatore(@PathVariable Long userId, @PathVariable Integer giocatoreId) {
-        Optional<Utente> optionalUtente = userService.getUserById(userId);
-        if (optionalUtente.isPresent()) {
-            Utente utente = optionalUtente.get();
-            return giocatoriVotiNellePartiteRepository.findByGiocatoreIdAndGiocatoreIn(giocatoreId, utente.getGiocatoriAcquistati());
-        }
-        return null;
-    }
+//    @GetMapping("/{userId}/voti")
+//    public List<GiocatoriVotiNellePartite> getVotiPerUtente(@PathVariable Long userId) {
+//        Optional<Utente> optionalUtente = userService.getUserById(userId);
+//        if (optionalUtente.isPresent()) {
+//            Utente utente = optionalUtente.get();
+//            return giocatoriVotiNellePartiteRepository.findByGiocatoreIn(utente.getGiocatoriAcquistati());
+//        }
+//        return null;
+//    }
+//
+//    @GetMapping("/{userId}/voti/{giocatoreId}")
+//    public List<GiocatoriVotiNellePartite> getVotiPerUtenteEGiocatore(@PathVariable Long userId, @PathVariable Integer giocatoreId) {
+//        Optional<Utente> optionalUtente = userService.getUserById(userId);
+//        if (optionalUtente.isPresent()) {
+//            Utente utente = optionalUtente.get();
+//            return giocatoriVotiNellePartiteRepository.findByGiocatoreIdAndGiocatoreIn(giocatoreId, utente.getGiocatoriAcquistati());
+//        }
+//        return null;
+//    }
 
 
     @PatchMapping("/{id}/avatar")

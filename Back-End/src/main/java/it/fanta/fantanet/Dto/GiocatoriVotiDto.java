@@ -12,5 +12,5 @@ public class GiocatoriVotiDto {
     private int giocatoreId;
     private int teamId;
     private int fixtureId;
-    private String rating;
+    private double rating;
 }

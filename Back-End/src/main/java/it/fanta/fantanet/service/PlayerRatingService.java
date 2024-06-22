@@ -17,7 +17,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-
 @Service
 public class PlayerRatingService {
     @Autowired
@@ -39,7 +38,6 @@ public class PlayerRatingService {
     private GiocatoreRepository giocatoreRepository;
     @Autowired
     TeamRepository teamRepository;
-
 
     @Value("${api.key}")
     private String apiKey;
@@ -112,8 +110,9 @@ public class PlayerRatingService {
                                     if (games != null) {
                                         System.out.println("Rating del giocatore: " + games.getRating());
 
-                                        Giocatore giocatore = giocatoreRepository.findByApiId(player.getId());
-                                        if (giocatore == null) {
+                                        List<Giocatore> giocatori = giocatoreRepository.findByApiId((long) player.getId());
+                                        Giocatore giocatore;
+                                        if (giocatori.isEmpty()) {
                                             giocatore = new Giocatore();
                                             giocatore.setApiId(player.getId());
                                             giocatore.setNome(fullName);
@@ -122,6 +121,9 @@ public class PlayerRatingService {
                                             giocatore.setNazionalita(player.getNationality());
                                             giocatore.setPhotoUrl(player.getPhoto());
                                             giocatoreRepository.save(giocatore);
+                                        } else {
+                                            // Gestisci il caso in cui ci sono più giocatori con lo stesso apiId
+                                            giocatore = giocatori.get(0); // Usa il primo giocatore trovato
                                         }
 
                                         Team team = teamRepository.findByApiId((long) teamId);
@@ -130,7 +132,20 @@ public class PlayerRatingService {
                                             giocatoriVoti.setGiocatore(giocatore);
                                             giocatoriVoti.setTeam(team);
                                             giocatoriVoti.setFixture(fixture);
-                                            giocatoriVoti.setRating(Double.parseDouble(games.getRating())); // convertito dopo,non testato
+
+                                            // Convertire la stringa in Double con il controllo di null
+                                            String ratingStr = games.getRating();
+                                            if (ratingStr != null && !ratingStr.trim().isEmpty()) {
+                                                try {
+                                                    giocatoriVoti.setRating(Double.parseDouble(ratingStr.trim()));
+                                                } catch (NumberFormatException e) {
+                                                    System.err.println("Rating non valido per il giocatore " + fullName + ": " + ratingStr);
+                                                    giocatoriVoti.setRating(0.0); // Imposta un valore di default se il rating non è valido
+                                                }
+                                            } else {
+                                                giocatoriVoti.setRating(0.0); // Imposta un valore di default se il rating è null o vuoto
+                                            }
+
                                             giocatoriVotiNellePartiteRepository.save(giocatoriVoti);
                                         } else {
                                             System.out.println("Team non trovato per ID: " + teamId);
