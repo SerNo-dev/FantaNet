@@ -1,0 +1,52 @@
+.sfondo{
+    background-image: url('../../../assets/imgs/sfondoRegister.jpg');
+    background-size: cover;
+    background-position: center 18%;
+    background-repeat: no-repeat;
+    height: 98vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #0056b3;
+    text-shadow: 2px 2px #ff5a5f;
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #003d82;
+}
