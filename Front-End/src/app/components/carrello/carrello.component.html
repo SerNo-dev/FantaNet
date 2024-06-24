@@ -1,6 +1,6 @@
 <div *ngIf="carrello && carrello.length > 0; else emptyCart">
   <h2>Cart</h2>
-  <div class="carrello-grid">
+  <div class="carrello-grid mt-5">
     <div *ngFor="let giocatore of carrello" class="player-card">
       <img [src]="giocatore.photoUrl" alt="{{ giocatore.nome }} {{ giocatore.cognome }}">
       <div class="player-info">

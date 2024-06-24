@@ -1,6 +1,7 @@
 .dashboard-content {
     display: flex;
-    height: 100vh;
+    margin-top: 50px;
+    height: 93.7vh;
   }
   
   .sidebar {
@@ -40,7 +41,6 @@
   
   .content-area {
     flex: 1;
-    padding: 20px;
+    padding: 20px 0; /* Padding verticale, ma niente padding orizzontale */
     overflow-y: auto;
-  }
-  
+}

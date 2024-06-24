@@ -1,5 +1,5 @@
 .custom-navbar-bg {
-    background: radial-gradient(circle, #2574a9, #d99b61);
+   background-color: #1e3959 !important;
   }
   
   .navbar {
@@ -61,3 +61,19 @@
     margin-right: 10px;
   }
   
+.user-info {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.user-info .badge {
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-left: 5px;
+  font-size: 0.9em;
+}

@@ -5,7 +5,9 @@
         <h3>{{ giocatore.nome}} {{ giocatore.cognome }}</h3>
         <p>Posizione: {{ giocatore.posizione }}</p>
         <p>Prezzo: {{ giocatore.prezzo }} crediti</p>
-        <button (click)="addToCarrello(giocatore)">Aggiungi al carrello</button>
+        <button class="btn-icon"  (click)="addToCarrello(giocatore)"><span class="material-symbols-outlined">
+          directions_bus
+          </span></button>
       </div>
     </div>
   </div>
