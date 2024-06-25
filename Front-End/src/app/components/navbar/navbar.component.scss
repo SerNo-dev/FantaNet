@@ -1,11 +1,17 @@
+
+.navbar {
+  height: 60px;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgba(30, 57, 89, 0.5); /* Aggiungere trasparenza */
+  transition: background-color 0.3s ease; /* Per un effetto di transizione quando si scorre */
+}
 .custom-navbar-bg {
-   background-color: #1e3959 !important;
-  }
-  
-  .navbar {
-    height: 70px;
-    font-family: 'Roboto', sans-serif;
-  }
+  background-color: rgba(30, 57, 89, 0.5) !important; /* Trasparenza */
+  transition: background-color 0.3s ease; /* Transizione per lo scrolling */
+  position: fixed;
+  width: 100%;
+  z-index: 10; /* Assicurati che la navbar sia sopra la hero section */
+}
   
   .navbar-nav .nav-link {
     font-size: 20px !important;
@@ -62,18 +68,18 @@
   }
   
 .user-info {
-  display: flex;
-  align-items: center;
-  font-size: 1.2em;
-  color: #fff;
-  margin-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    color: #fff;
+    margin-left: 10px;
 }
 
 .user-info .badge {
-  background-color: #ff6b6b;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 20px;
-  margin-left: 5px;
-  font-size: 0.9em;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-size: 0.9em;
 }

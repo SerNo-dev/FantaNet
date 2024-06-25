@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class MainComponent {
   players = [
     {
-      imageUrl: 'assets/imgs/Card1.jpg',
+      imageUrl: 'assets/imgs/card1n.jpg',
       description: `
       Immagina di poter creare la tua squadra dei sogni ogni settimana, 
       utilizzando crediti virtuali per selezionare i migliori giocatori disponibili.
@@ -17,7 +17,7 @@ export class MainComponent {
       `,title: 'Crea la tua Squadra Ideale'
     },
     {
-      imageUrl: 'assets/imgs/futuro.jpg',
+      imageUrl: 'assets/imgs/card2.jpg',
       description: `
         Utilizza i tuoi crediti per creare una squadra competitiva ogni settimana. 
         Seleziona i giocatori in base alle loro prestazioni reali e strategizza per battere i tuoi avversari. 
@@ -26,7 +26,7 @@ export class MainComponent {
       `,title: 'Crea la tua Squadra dei Sogni'
     },
     {
-      imageUrl: 'assets/imgs/campo.jpg',
+      imageUrl: 'assets/imgs/card3.jpg',
       description: `
      Una volta formata la tua squadra, è il momento di metterla alla prova.
      Sfida un utente casuale del sito e competi per guadagnare crediti e prestigio.

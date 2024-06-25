@@ -1,6 +1,6 @@
 <div *ngIf="carrello && carrello.length > 0; else emptyCart">
-  <h2>Cart</h2>
-  <div class="carrello-grid mt-5">
+
+  <div class="carrello-grid">
     <div *ngFor="let giocatore of carrello" class="player-card">
       <img [src]="giocatore.photoUrl" alt="{{ giocatore.nome }} {{ giocatore.cognome }}">
       <div class="player-info">
@@ -16,5 +16,5 @@
   </div>
 </div>
 <ng-template #emptyCart>
-  <p>The cart is empty.</p>
+  <p class="empty">The cart is empty.</p>
 </ng-template>
