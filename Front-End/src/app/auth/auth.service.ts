@@ -59,11 +59,22 @@ export class AuthService {
     console.log('Stored User in getStoredUser:', storedUser);
     return storedUser ? JSON.parse(storedUser) : null;
   }
+ 
   updateUser(user: AuthData) {
     console.log('updateUser() chiamato con:', user);
+    
+    // Recupera l'utente attuale dal localStorage
+    const currentUser = this.getStoredUser();
+    if (currentUser) {
+      // Mantieni l'avatar se esiste nell'utente attuale
+      if (!user.avatar && currentUser.avatar) {
+        user.avatar = currentUser.avatar;
+      }
+    }
+
     this.authSub.next(user);
     localStorage.setItem('user', JSON.stringify(user));
-  
+
     // Debugging dettagliato del token
     if (user.accessToken) {
       this.token = user.accessToken;
