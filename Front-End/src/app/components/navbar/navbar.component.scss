@@ -2,15 +2,16 @@
 .navbar {
   height: 60px;
   font-family: 'Roboto', sans-serif;
-  background-color: rgba(30, 57, 89, 0.5); /* Aggiungere trasparenza */
-  transition: background-color 0.3s ease; /* Per un effetto di transizione quando si scorre */
+  background-color: rgba(30, 57, 89, 0.5); 
+  transition: background-color 0.3s ease; 
 }
 .custom-navbar-bg {
-  background-color: rgba(30, 57, 89, 0.5) !important; /* Trasparenza */
-  transition: background-color 0.3s ease; /* Transizione per lo scrolling */
+  background-color: rgba(30, 57, 89, 0.5) !important; 
+  transition: background-color 0.3s ease; 
   position: fixed;
   width: 100%;
-  z-index: 10; /* Assicurati che la navbar sia sopra la hero section */
+  z-index: 10; 
+  border-radius: 0 0 50px 50px; 
 }
   
   .navbar-nav .nav-link {
