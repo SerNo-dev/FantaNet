@@ -12,6 +12,9 @@ import { GiocatoreService } from 'src/app/service/giocatore.service';
 export class CarrelloComponent implements OnInit {
   carrello: Giocatore[] = [];
   user: AuthData | null = null;
+  totaleSpesa: number = 0;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
 
   constructor(private giocatoreService: GiocatoreService, private authService: AuthService) {}
 
@@ -21,39 +24,53 @@ export class CarrelloComponent implements OnInit {
       this.authService.getUserById(storedUser.id).subscribe(user => {
         this.user = user;
         this.carrello = user.carrello;
+        this.calcolaTotaleSpesa();
       });
     }
     this.authService.user$.subscribe(updatedUser => {
       if (updatedUser) {
         this.user = updatedUser;
         this.carrello = updatedUser.carrello;
+        this.calcolaTotaleSpesa();
       }
     });
   }
 
+  calcolaTotaleSpesa(): void {
+    this.totaleSpesa = this.carrello.reduce((acc, giocatore) => acc + giocatore.prezzo, 0);
+  }
+
   confermaAcquisto(): void {
+    this.successMessage = null;
+    this.errorMessage = null;
+
     const userId = this.user?.id;
     const giocatoriIds = this.carrello.map(giocatore => giocatore.id);
 
     if (userId && giocatoriIds.length > 0) {
-      this.giocatoreService.addGiocatoriToUser(userId, giocatoriIds).subscribe(
-        updatedUser => {
-          console.log('Purchase confirmed successfully', updatedUser);
-          this.authService.updateUser(updatedUser);
+      if ((this.user?.crediti ?? 0) >= this.totaleSpesa) {
+        this.giocatoreService.addGiocatoriToUser(userId, giocatoriIds).subscribe(
+          updatedUser => {
+            console.log('Purchase confirmed successfully', updatedUser);
+            this.authService.updateUser(updatedUser);
 
-          // Clear the cart locally and update the user
-          if (this.user) {
-            this.user.carrello = [];
-            this.authService.updateUser(this.user);
-            this.carrello = [];
+            // Clear the cart locally and update the user
+            if (this.user) {
+              this.user.carrello = [];
+              this.authService.updateUser(this.user);
+              this.carrello = [];
+            }
+            this.successMessage = 'Acquisto confermato con successo!';
+          },
+          error => {
+            console.error('Error confirming purchase', error);
           }
-        },
-        error => {
-          console.error('Error confirming purchase', error);
-        }
-      );
+        );
+      } else {
+        this.errorMessage = 'Crediti insufficienti per completare l\'acquisto.';
+      }
     } else {
-      console.error('Token not found or player ID list is empty');
+      this.errorMessage = 'Token non trovato o lista degli ID dei giocatori vuota';
     }
   }
 
@@ -64,6 +81,7 @@ export class CarrelloComponent implements OnInit {
           console.log('Player successfully removed from cart', response);
           this.authService.updateUser(response);
           this.carrello = response.carrello;
+          this.calcolaTotaleSpesa();
         },
         error => {
           console.error('Error removing player from cart', error);

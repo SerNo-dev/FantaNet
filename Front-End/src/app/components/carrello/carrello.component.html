@@ -1,20 +1,36 @@
 <div *ngIf="carrello && carrello.length > 0; else emptyCart">
-
   <div class="carrello-grid">
     <div *ngFor="let giocatore of carrello" class="player-card">
       <img [src]="giocatore.photoUrl" alt="{{ giocatore.nome }} {{ giocatore.cognome }}">
       <div class="player-info">
         <h3>{{ giocatore.nome }} {{ giocatore.cognome }}</h3>
-        <p>Position: {{ giocatore.posizione }}</p>
-        <p>Price: {{ giocatore.prezzo }} credits</p>
-        <button class="remove-btn" (click)="removeFromCarrello(giocatore.id)">Remove</button>
+        <p>Posizione: {{ giocatore.posizione }}</p>
+        <p>Prezzo: {{ giocatore.prezzo }} crediti</p>
+        <button class="remove-btn" (click)="removeFromCarrello(giocatore.id)">Rimuovi</button>
       </div>
     </div>
   </div>
   <div class="carrello-footer">
-    <button class="acquista-btn" (click)="confermaAcquisto()">Confirm Purchase</button>
+    <p>Totale pezzi: {{ carrello.length }}</p>
+    <p>Totale spesa: {{ totaleSpesa }} crediti</p>
+    <button class="acquista-btn" (click)="confermaAcquisto()">Conferma Acquisto</button>
   </div>
 </div>
+
+<div *ngIf="successMessage" class="success-message">
+  <p><span class="material-symbols-outlined mt-1">
+    check_circle
+    </span> {{ successMessage }}</p>
+  <a [routerLink]="['/dashboard/deck']" class="deck-link">Vai al Deck</a>
+</div>
+
+
+<div *ngIf="errorMessage" class="error-message">
+  <p><span class="material-symbols-outlined mt-1">
+    error
+    </span> {{ errorMessage }}</p>
+</div>
+
 <ng-template #emptyCart>
-  <p class="empty">The cart is empty.</p>
+  <p class="empty">Il carrello è vuoto.</p>
 </ng-template>
