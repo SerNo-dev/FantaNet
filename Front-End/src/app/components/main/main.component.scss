@@ -1,3 +1,30 @@
-.container{
-    margin-top: 30px;
-}
+.container {
+    margin-top: 40px;
+  }
+  
+  .main-container {
+    position: relative;
+    left: -70px; 
+    transform: translateX(-10px); 
+  }
+  
+  .row {
+    margin-bottom: 20px; 
+  }
+  
+  .col-md-6 {
+    padding: 10px; 
+  }
+  
+  .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .main-container {
+      left: 0;
+      transform: none; 
+    }
+  }
