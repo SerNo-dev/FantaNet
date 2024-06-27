@@ -1,86 +1,104 @@
-
 .navbar {
   height: 60px;
   font-family: 'Roboto', sans-serif;
-  background-color: rgba(30, 57, 89, 0.5); 
-  transition: background-color 0.3s ease; 
+  background-color: rgba(30, 57, 89, 0.5);
+  transition: background-color 0.3s ease;
 }
+
 .custom-navbar-bg {
-  background-color: rgba(30, 57, 89, 0.5) !important; 
-  transition: background-color 0.3s ease; 
+  background-color: rgba(30, 57, 89, 0.5) !important;
+  transition: background-color 0.3s ease;
   position: fixed;
   width: 100%;
-  z-index: 10; 
-  border-radius: 0 0 50px 50px; 
+  z-index: 10;
+  border-radius: 0 0 50px 50px;
 }
-  
-  .navbar-nav .nav-link {
-    font-size: 20px !important;
-  }
-  
-  .navbar-brand img {
-    max-height: 50px;
-  }
-  
-  .navbar-nav {
-    margin-left: auto;
-  }
-  
-  .navbar-nav .nav-link {
-    color: white;
-    padding: 0.5rem 1rem;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-  }
-  
-  .form-control {
-    border-radius: 5px;
-  }
-  
-  .btn-outline-light {
-    border-radius: 5px;
-  }
-  
-  #accedi-link,
-  #registrati-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  #accedi-link:hover,
-  #registrati-link:hover {
-    background-color: #0056b3;
-  }
-  
-  .avatar-img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
+
+.navbar-nav .nav-link {
+  font-size: 20px !important;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.navbar-brand img {
+  max-height: 50px;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.btn-outline-light {
+  border-radius: 5px;
+}
+
+#accedi-link,
+#registrati-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#accedi-link:hover,
+#registrati-link:hover {
+  background-color: #0056b3;
+}
+
+.avatar-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 .user-info {
-    display: flex;
-    align-items: center;
-    font-size: 1.2em;
-    color: #fff;
-    margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  color: #fff;
+  margin-left: 10px;
 }
 
 .user-info .badge {
-    background-color: #ff6b6b;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 20px;
-    margin-left: 5px;
-    font-size: 0.9em;
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-left: 5px;
+  font-size: 0.9em;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.badge-notification {
+  position: absolute;
+  top: 13px; /* Sposta il badge verso l'alto */
+  right: 20px; /* Sposta il badge verso destra */
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 15px; /* Imposta una larghezza fissa */
+  height: 15px; /* Imposta un'altezza fissa */
+  font-size: 10px; /* Riduci la dimensione del font */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

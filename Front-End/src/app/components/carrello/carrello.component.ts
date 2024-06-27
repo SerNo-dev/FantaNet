@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AuthData } from 'src/app/interface/auth-data.interface';
 import { Giocatore } from 'src/app/interface/giocatore.interface';
+import { CartService } from 'src/app/service/cart.service';
 import { GiocatoreService } from 'src/app/service/giocatore.service';
 
 @Component({
@@ -16,7 +17,11 @@ export class CarrelloComponent implements OnInit {
   successMessage: string | null = null;
   errorMessage: string | null = null;
 
-  constructor(private giocatoreService: GiocatoreService, private authService: AuthService) {}
+  constructor(
+    private giocatoreService: GiocatoreService,
+    private authService: AuthService,
+    private cartService: CartService // Inietta il CartService
+  ) {}
 
   ngOnInit(): void {
     const storedUser = this.authService.getStoredUser();
@@ -59,6 +64,7 @@ export class CarrelloComponent implements OnInit {
               this.user.carrello = [];
               this.authService.updateUser(this.user);
               this.carrello = [];
+              this.cartService.resetCartItemCount(); // Reset il conteggio del carrello
             }
             this.successMessage = 'Acquisto confermato con successo!';
           },
@@ -82,6 +88,7 @@ export class CarrelloComponent implements OnInit {
           this.authService.updateUser(response);
           this.carrello = response.carrello;
           this.calcolaTotaleSpesa();
+          this.cartService.updateCartItemCount(response.carrello.length); // Aggiorna il conteggio del carrello
         },
         error => {
           console.error('Error removing player from cart', error);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AuthData } from 'src/app/interface/auth-data.interface';
 import { Giocatore } from 'src/app/interface/giocatore.interface';
+import { CartService } from 'src/app/service/cart.service';
 import { GiocatoreService } from 'src/app/service/giocatore.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class PlayersComponent implements OnInit {
 
   constructor(
     private giocatoreService: GiocatoreService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cartService: CartService // Inietta il CartService
   ) {}
 
   ngOnInit(): void {
@@ -78,6 +80,10 @@ export class PlayersComponent implements OnInit {
         (response: AuthData) => {
           console.log('Giocatore aggiunto al carrello con successo', response);
           this.authService.updateUser(response);
+
+          // Aggiorna il conteggio del carrello
+          this.cartService.updateCartItemCount(response.carrello.length);
+
           console.log('addToCarrello() -> User aggiornato:', this.authService.getStoredUser());
         },
         (error: any) => {
