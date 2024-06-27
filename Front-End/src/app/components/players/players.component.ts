@@ -14,6 +14,7 @@ export class PlayersComponent implements OnInit {
   page: number = 0;
   totalPages: number = 0;
   userId: number | null = null;
+  keyword: string = '';
 
   constructor(
     private giocatoreService: GiocatoreService,
@@ -40,6 +41,21 @@ export class PlayersComponent implements OnInit {
     );
   }
 
+  searchGiocatori(): void {
+    if (this.keyword.trim()) {
+      this.giocatoreService.searchGiocatori(this.keyword).subscribe(
+        data => {
+          this.giocatori = data;
+        },
+        error => {
+          console.error('Errore nella ricerca dei giocatori', error);
+        }
+      );
+    } else {
+      this.loadGiocatori();
+    }
+  }
+
   nextPage(): void {
     if (this.page + 1 < this.totalPages) {
       this.page++;
@@ -61,7 +77,7 @@ export class PlayersComponent implements OnInit {
       this.giocatoreService.addGiocatoreToCarrello(userId, giocatore.id).subscribe(
         (response: AuthData) => {
           console.log('Giocatore aggiunto al carrello con successo', response);
-          this.authService.updateUser(response); // Aggiorna l'utente solo con la risposta del server
+          this.authService.updateUser(response);
           console.log('addToCarrello() -> User aggiornato:', this.authService.getStoredUser());
         },
         (error: any) => {

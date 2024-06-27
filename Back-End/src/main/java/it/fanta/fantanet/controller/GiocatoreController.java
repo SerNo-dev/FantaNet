@@ -35,4 +35,8 @@ public class GiocatoreController {
         return giocatoreRepository.findAll(pageable);
     }
 
+    @GetMapping("/search")
+    public List<Giocatore> searchGiocatori(@RequestParam("keyword") String keyword) {
+        return giocatoreRepository.searchByNomeOrCognome(keyword);
+    }
 }

@@ -50,4 +50,8 @@ export class GiocatoreService {
     return this.http.post<AuthData>(`${this.apiUrl2}/users/${userId}/deck/remove`, giocatoreId, { headers });
   }
 
+  searchGiocatori(keyword: string): Observable<Giocatore[]> {
+    return this.http.get<Giocatore[]>(`${this.apiUrl}/search`, { params: { keyword } });
+  }
+
 }
