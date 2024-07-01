@@ -1,6 +1,6 @@
 .dashboard-content {
     display: flex;
-    margin-top: 40px;
+    margin-top: 60px;
   }
   
   .sidebar {
@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 0px;
     
    
   }
@@ -43,6 +43,6 @@
   
   .content-area {
     flex: 1;
-    padding: 20px 0; /* Padding verticale, ma niente padding orizzontale */
+    padding: 0px 0; /* Padding verticale, ma niente padding orizzontale */
     overflow-y: auto;
 }
