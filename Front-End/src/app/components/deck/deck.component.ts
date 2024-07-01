@@ -40,6 +40,12 @@ export class DeckComponent implements OnInit {
   }
 
   addToDeck(giocatore: Giocatore): void {
+    if (this.deck.length >= 7) {
+      this.deckError = 'You can have only 7 players in your deck.';
+      console.log('Deck limit reached:', giocatore);
+      return;
+    }
+
     if (this.isInDeck(giocatore)) {
       this.deckError = 'Player is already in the deck.';
       console.log('Player is already in the deck:', giocatore);

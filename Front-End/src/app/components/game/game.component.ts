@@ -25,7 +25,7 @@ export class GameComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private votiService: GiocatoriVotiService,
     private webSocketService: WebSocketService,
-    private http: HttpClient, // Aggiungi HttpClient
+    private http: HttpClient,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -47,7 +47,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
   handleWebSocketMessage(message: any): void {
     console.log('Received message: ', message);
-  
+
     if (message.userDeck && message.opponentDeck && message.winner) {
       if (message.userId === this.user?.id) {
         this.userDeck = message.userDeck;
@@ -68,7 +68,6 @@ export class GameComponent implements OnInit, OnDestroy {
       this.cdr.detectChanges();
     }
   }
-  
 
   loadUserDeck(userId: number): void {
     this.votiService.getVotiByUserDeck(userId).subscribe(
@@ -84,8 +83,8 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   findRandomOpponent(): void {
-    if (this.user) {
-      this.userService.getRandomUser(this.user.id).subscribe(
+    if (this.user && this.userDeck.length === 7) {
+      this.userService.getRandomUserWithFullDeck(this.user.id).subscribe(
         (user) => {
           this.opponent = user;
           if (this.opponent) {
@@ -97,27 +96,29 @@ export class GameComponent implements OnInit, OnDestroy {
           this.errorMessage = 'Error finding random opponent';
         }
       );
+    } else {
+      this.errorMessage = 'Your deck must contain exactly 7 players to find an opponent.';
     }
   }
 
   loadOpponentDeck(userId: number): void {
-    console.log('Loading opponent deck for user ID:', userId); // Log per tracciare la chiamata
+    console.log('Loading opponent deck for user ID:', userId);
     this.votiService.getVotiByUserDeck(userId).subscribe(
       (deck) => {
         this.opponentDeck = deck;
         if (this.user && this.opponent) {
           this.battle(this.user, this.opponent);
-  
+
           const userWithAvatar = {
             ...this.user,
             avatar: this.user.avatar || 'default-avatar.png'
           };
-  
+
           const opponentWithAvatar = {
             ...this.opponent,
             avatar: this.opponent.avatarUrl || 'default-avatar.png'
           };
-  
+
           this.webSocketService.sendMessage({
             userId: this.user.id,
             userDeck: this.userDeck,
@@ -126,9 +127,9 @@ export class GameComponent implements OnInit, OnDestroy {
             user: userWithAvatar,
             opponent: opponentWithAvatar
           });
-  
-          this.saveMatch(); // Salva il match qui, dopo aver inviato il messaggio WebSocket
-  
+
+          this.saveMatch();
+
           this.cdr.detectChanges();
         }
       },
@@ -138,7 +139,7 @@ export class GameComponent implements OnInit, OnDestroy {
       }
     );
   }
-  
+
   saveMatch(): void {
     if (this.user && this.opponent && this.winner) {
       const match = {
@@ -148,9 +149,9 @@ export class GameComponent implements OnInit, OnDestroy {
         user2Score: this.calculateTotalScore(this.opponentDeck),
         winnerId: this.winner.id
       };
-  
+
       console.log('Attempting to save match:', match);
-  
+
       this.http.post('http://localhost:8080/api/game/save', match).subscribe(
         () => {
           console.log('Match saved successfully');

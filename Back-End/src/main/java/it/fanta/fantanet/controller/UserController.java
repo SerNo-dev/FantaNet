@@ -155,12 +155,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/random")
-    public ResponseEntity<Utente> getRandomUser(@RequestParam Long currentUserId) {
-        return userService.getRandomUser(currentUserId)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+
+    @GetMapping("/randomWithFullDeck")
+    public ResponseEntity<Utente> getRandomUserWithFullDeck(@RequestParam Long userId) {
+        Utente randomUser = userService.getRandomUserWithFullDeck(userId);
+        if (randomUser == null) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
+        return ResponseEntity.ok(randomUser);
     }
-
-
 }

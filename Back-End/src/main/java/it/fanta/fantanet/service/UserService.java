@@ -149,21 +149,19 @@ public class UserService {
 
 
 
-
-    public Optional<Utente> getRandomUser(Long currentUserId) {
-        List<Utente> users = userRepository.findAll().stream()
-                .filter(user -> !user.getId().equals(currentUserId))
+    public Utente getRandomUserWithFullDeck(Long userId) {
+        List<Utente> users = userRepository.findAll();
+        List<Utente> validUsers = users.stream()
+                .filter(user -> !user.getId().equals(userId) && user.getDeck().size() == 7)
                 .collect(Collectors.toList());
 
-        if (users.isEmpty()) {
-            return Optional.empty();
+        if (validUsers.isEmpty()) {
+            return null;
         }
-        Random random = new Random();
-        return Optional.of(users.get(random.nextInt(users.size())));
+
+        int randomIndex = new Random().nextInt(validUsers.size());
+        return validUsers.get(randomIndex);
     }
-
-
-
 
 
 

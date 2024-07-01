@@ -18,8 +18,9 @@ export class UserService {
     return this.http.get<User[]>(this.apiUrl);
   }
 
-  getRandomUser(currentUserId: number): Observable<AuthData> {
-    const params = new HttpParams().set('currentUserId', currentUserId.toString());
-    return this.http.get<AuthData>(`${this.apiUrl}/random`, { params });
+ 
+
+  getRandomUserWithFullDeck(userId: number): Observable<AuthData> {
+    return this.http.get<AuthData>(`${this.apiUrl}/randomWithFullDeck?userId=${userId}`);
   }
 }
