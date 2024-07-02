@@ -4,6 +4,8 @@ import { AuthData } from 'src/app/interface/auth-data.interface';
 import { Giocatore } from 'src/app/interface/giocatore.interface';
 import { GiocatoreService } from 'src/app/service/giocatore.service';
 
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-deck',
   templateUrl: './deck.component.html',
@@ -39,22 +41,28 @@ export class DeckComponent implements OnInit {
     });
   }
 
+  showError(message: string): void {
+    this.deckError = message;
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    errorModal.show();
+  }
+
   addToDeck(giocatore: Giocatore): void {
     if (this.deck.length >= 7) {
-      this.deckError = 'You can have only 7 players in your deck.';
+      this.showError('You can have only 7 players in your deck.');
       console.log('Deck limit reached:', giocatore);
       return;
     }
 
     if (this.isInDeck(giocatore)) {
-      this.deckError = 'Player is already in the deck.';
+      this.showError('Player is already in the deck.');
       console.log('Player is already in the deck:', giocatore);
       return;
     }
 
     const { valid, message } = this.verificaDeck([...this.deck, giocatore]);
     if (!valid) {
-      this.deckError = message;
+      this.showError(message);
       console.log('Deck verification failed:', message);
       return;
     }
@@ -78,7 +86,7 @@ export class DeckComponent implements OnInit {
 
   removeFromDeck(giocatoreId: number): void {
     if (!this.isInDeckById(giocatoreId)) {
-      this.deckError = 'Player is not in the deck.';
+      this.showError('Player is not in the deck.');
       console.log('Player is not in the deck:', giocatoreId);
       return;
     }

@@ -11,7 +11,12 @@
             <h3>{{ giocatore.nome }} {{ giocatore.cognome }}</h3>
             <p>Position: {{ giocatore.posizione }}</p>
             <p>Price: {{ giocatore.prezzo }} credits</p>
-            <button class="add-to-deck-btn" (click)="addToDeck(giocatore)" [disabled]="isInDeck(giocatore)">Add to Deck</button>
+            <button class="add-to-deck-btn" 
+                    (click)="addToDeck(giocatore)" 
+                    [disabled]="isInDeck(giocatore)" 
+                    [ngClass]="{'btn-danger': isInDeck(giocatore), 'btn-primary': !isInDeck(giocatore)}">
+              {{ isInDeck(giocatore) ? 'Already in Deck' : 'Add to Deck' }}
+            </button>
           </div>
         </div>
       </div>
@@ -39,7 +44,21 @@
     </div>
   </div>
   
-  <div *ngIf="deckError" class="error-message">
-    {{ deckError }}
+  <!-- Modal for Error Messages -->
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ deckError }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -121,3 +121,64 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Button styles */
+.add-to-deck-btn {
+  &.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  &.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+/* Modal customization */
+#errorModal .modal-dialog {
+  max-width: 500px;
+}
+
+#errorModal .modal-content {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#errorModal .modal-header {
+  border-bottom: none;
+  background-color: #dc3545; /* Bootstrap danger color */
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#errorModal .modal-body {
+  padding: 20px;
+  font-size: 1.1em;
+  color: red;
+}
+
+#errorModal .modal-footer {
+  border-top: none;
+  justify-content: center;
+}
+
+#errorModal .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+#errorModal .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+
+
+
+
