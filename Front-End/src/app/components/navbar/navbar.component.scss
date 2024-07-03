@@ -1,8 +1,8 @@
 .navbar {
   height: 60px;
   font-family: 'Roboto', sans-serif;
-  background-color: rgba(30, 57, 89, 0.5);
-  transition: background-color 0.3s ease;
+  background-color: rgba(17, 17, 17, 0.3);
+  backdrop-filter: blur(5px);
 }
 
 .custom-navbar-bg {
