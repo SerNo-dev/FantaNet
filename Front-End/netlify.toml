@@ -3,15 +3,4 @@
   command = "npm install --legacy-peer-deps && npm run build"
   publish = "Front-End/"
 
-[context.production.environment]
-  NODE_VERSION = "18"
 
-[context.deploy-preview]
-  base = "Front-End"
-  command = "npm install --legacy-peer-deps && npm run build"
-  publish = "Front-End/"
-
-[context.branch-deploy]
-  base = "Front-End"
-  command = "npm install --legacy-peer-deps && npm run build"
-  publish = "Front-End/"
