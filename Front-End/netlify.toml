@@ -1,4 +1,0 @@
-[build]
-  base    = "Front-End"
-  publish = "Front-End/dist/front-end"
-  command = "npm install && npm run build"
