@@ -1,6 +1,5 @@
 [build]
   base = "Front-End"
-  command = "npm install --legacy-peer-deps --force
- && npm run build"
+  command = "npm install --legacy-peer-deps --force && npm run build"
   publish = "Front-End/dist"
   functions = "Front-End/netlify/functions"
