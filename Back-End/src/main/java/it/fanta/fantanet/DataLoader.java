@@ -21,10 +21,10 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-   apiService.fetchAndSaveTeams();
-   fixtureService.fetchAndSaveSerieAFixtures();
-    apiService.fetchAndSaveGiocatori();
-     playerRatingService.fetchAndSavePlayerRatingsForSerieA();
+  // apiService.fetchAndSaveTeams();
+ //  fixtureService.fetchAndSaveSerieAFixtures();
+ //   apiService.fetchAndSaveGiocatori();
+ //    playerRatingService.fetchAndSavePlayerRatingsForSerieA();
     }
 
 }
