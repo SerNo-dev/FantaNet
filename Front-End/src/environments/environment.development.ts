@@ -1,5 +1,5 @@
 export const environment = {
     production:false,
-    apiURL : 'http://localhost:8080',
+    apiURL : 'https://elderly-gabbey-fantanet-eb3895d4.koyeb.app',
     wsUrl: 'ws://localhost:8081' 
 };
