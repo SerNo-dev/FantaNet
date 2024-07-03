@@ -6,6 +6,7 @@ import { GiocatoriVotiService } from 'src/app/service/giocatorivoti.service';
 import { UserService } from 'src/app/service/user.service';
 import { WebSocketService } from 'src/app/service/web-socket.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-game',
@@ -152,7 +153,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
       console.log('Attempting to save match:', match);
 
-      this.http.post('http://localhost:8080/api/game/save', match).subscribe(
+      this.http.post(`${environment.apiURL}/api/game/save`, match).subscribe(
         () => {
           console.log('Match saved successfully');
         },

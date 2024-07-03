@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { Giocatore } from '../interface/giocatore.interface';
 import { AuthService } from '../auth/auth.service';
 import { AuthData } from '../interface/auth-data.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GiocatoreService {
-  private apiUrl = 'http://localhost:8080/api/giocatori';
-  private apiUrl2 = 'http://localhost:8080/api';
+  private apiUrl = `${environment.apiURL}/api/giocatori`;
+  private apiUrl2 = `${environment.apiURL}/api`;
 
 
   constructor(private http: HttpClient, private authService: AuthService) {}

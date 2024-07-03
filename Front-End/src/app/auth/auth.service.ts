@@ -6,13 +6,14 @@ import { catchError, tap } from 'rxjs/operators';
 import { AuthData } from '../interface/auth-data.interface';
 import { Login } from '../interface/login.interface';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiURL = 'http://localhost:8080/auth';
-  private apiUserURL = 'http://localhost:8080/api/users';
+  private apiURL = `${environment.apiURL}/auth`;
+  private apiUserURL = `${environment.apiURL}/api/users`;
   private token: string | null = localStorage.getItem('token');
   private authSub = new BehaviorSubject<AuthData | null>(this.getStoredUser());
   user$ = this.authSub.asObservable();

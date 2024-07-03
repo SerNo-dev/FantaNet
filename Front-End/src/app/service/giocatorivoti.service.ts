@@ -5,12 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GiocatoriVotiNellePartite } from '../interface/giocatori-voti-nelle-partite.interface'; // Importa l'interfaccia GiocatoriVotiNellePartite
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GiocatoriVotiService {
-  private apiUrl = 'http://localhost:8080/api/voti';
+  private apiUrl = `${environment.apiURL}/api/voti`;
 
   constructor(private http: HttpClient) {}
   getVotiByUserDeck(userId: number): Observable<GiocatoriVotiNellePartite[]> {

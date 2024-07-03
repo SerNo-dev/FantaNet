@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AuthData } from 'src/app/interface/auth-data.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -45,7 +46,7 @@ export class ProfileComponent implements OnInit  {
 
     console.log('Headers prepared:', headers);
 
-    this.http.patch<{ avatarUrl: string }>(`http://localhost:8080/api/users/${this.user.id}/avatar`, formData, { headers })
+    this.http.patch<{ avatarUrl: string }>(`${environment.apiURL}/api/users/${this.user.id}/avatar`, formData, { headers })
       .subscribe(response => {
         console.log('HTTP PATCH response:', response);
         if (this.user) {
