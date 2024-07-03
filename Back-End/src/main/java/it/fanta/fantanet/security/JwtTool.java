@@ -42,5 +42,4 @@ public class JwtTool {
         return Integer.parseInt(Jwts.parser().setSigningKey(Keys.hmacShaKeyFor(secret.getBytes())).
                 build().parseSignedClaims(token).getPayload().getSubject());
     }
-
 }

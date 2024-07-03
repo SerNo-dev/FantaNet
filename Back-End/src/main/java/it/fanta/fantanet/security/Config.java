@@ -61,7 +61,6 @@ public class Config {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
-
         return new CorsFilter(source);
     }
 }
