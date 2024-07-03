@@ -1,14 +1,17 @@
 [build]
-  command = "npm install --force && npm run build"
-  publish = "dist"
+  base = "Front-End"
+  command = "npm install --legacy-peer-deps && npm run build"
+  publish = "Front-End/dist"
 
 [context.production.environment]
   NODE_VERSION = "18"
 
 [context.deploy-preview]
-  command = "npm install --force && npm run build"
-  publish = "dist"
+  base = "Front-End"
+  command = "npm install --legacy-peer-deps && npm run build"
+  publish = "Front-End/dist"
 
 [context.branch-deploy]
-  command = "npm install --force && npm run build"
-  publish = "dist"
+  base = "Front-End"
+  command = "npm install --legacy-peer-deps && npm run build"
+  publish = "Front-End/dist"
