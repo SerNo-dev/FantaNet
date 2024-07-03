@@ -1,6 +1,6 @@
 [build]
   base = "Front-End"
-  publish = "dist"
+  publish = "dist/front-end"  # Cambia questa linea per corrispondere all'outputPath
   command = "npm run build"
 
 [[redirects]]
