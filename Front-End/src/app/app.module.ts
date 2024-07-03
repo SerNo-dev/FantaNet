@@ -28,12 +28,12 @@ import { AuthGuard } from './auth/auth.guard';
 import { DeckComponent } from './components/deck/deck.component';
 import { GameComponent } from './components/game/game.component';
 
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+//import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ReplayComponent } from './components/replay/replay.component';
 
 
 
-const config: SocketIoConfig = { url: 'http://localhost:8081', options: {} };
+//const config: SocketIoConfig = { url: 'http://localhost:8081', options: {} };
 const routes: Route[] = [
   {
     path: '',
@@ -86,7 +86,7 @@ const routes: Route[] = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     CommonModule,
-    SocketIoModule.forRoot(config)
+  //  SocketIoModule.forRoot(config)
   ],
   providers: [
     AuthService,
