@@ -12,14 +12,14 @@ body {
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
+ 
 }
 .loader {
-  margin: 100% auto;
+  margin: 120px auto;
   margin-right:20px;
   svg {
-    width: 80vw;
+    width: 400vw;
     max-width: 800px;
-    display: block;
   }
 
   path {
