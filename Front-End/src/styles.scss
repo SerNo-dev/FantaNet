@@ -22,7 +22,8 @@ body {
 
 .loader {
   svg {
-    height: 50vw; /* Dimensione responsiva utilizzando vw */
+    height: 50vw; 
+    max-width: 500px;
     display: block;
   }
 
