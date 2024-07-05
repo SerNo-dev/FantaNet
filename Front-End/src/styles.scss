@@ -6,24 +6,26 @@ body {
   font-family: Arial, sans-serif;
   position: relative;
 }
+
+
 .main-fader {
-  display: flex; /* Utilizza flexbox per centrare il contenuto */
-  align-items: center; /* Centra verticalmente */
-  justify-content: center; /* Centra orizzontalmente */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
   width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  display: none; /* Nascondi di default */
+  display: none; 
   z-index: 1000;
 }
 
 .loader {
   svg {
-    height: 50vw; 
-    max-width: 500px;
+    width: 80vw;
+    max-width: 800px; 
     display: block;
   }
 
