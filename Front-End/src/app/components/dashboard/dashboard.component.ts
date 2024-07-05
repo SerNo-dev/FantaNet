@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class DashboardComponent {
 
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -23,7 +24,7 @@ export class DashboardComponent {
 
       setTimeout(() => {
         this.hideLoader();
-      }, 1000); 
+      }, 300); 
     }
   }
 
