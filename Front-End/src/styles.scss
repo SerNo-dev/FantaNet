@@ -16,22 +16,21 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  display: none; /* Nascondi di default */
+  display: none; 
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  display: flex;
 }
 
 .loader {
   svg {
-    height: 50vw; /* Ingrandisce l'immagine SVG */
+    height: 50vw; 
     display: block;
     margin: 0 auto;
   }
 
   path {
-    animation-duration: 0.25s; /* Riduce la durata dell'animazione */
+    animation-duration: 0.5s; 
     animation-name: pulse;
     animation-iteration-count: infinite;
     color: #26a380;
