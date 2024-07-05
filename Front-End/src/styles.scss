@@ -7,3 +7,75 @@ body {
   position: relative;
 }
 
+
+.main-fader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none; /* Nascondi di default */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader {
+  svg {
+    height: 50vw; 
+    display: block;
+    margin: 50px auto;
+  }
+
+  path {
+    animation-duration: 0.3s; /* Riduce ulteriormente la durata dell'animazione */
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    color: #26a380;
+  }
+
+  .path-7 {
+    animation-delay: -0.3s;
+  }
+
+  .path-6 {
+    animation-delay: -0.2625s;
+  }
+
+  .path-5 {
+    animation-delay: -0.225s;
+  }
+
+  .path-4 {
+    animation-delay: -0.1875s;
+  }
+
+  .path-3 {
+    animation-delay: -0.15s;
+  }
+
+  .path-2 {
+    animation-delay: -0.1125s;
+  }
+
+  .path-1 {
+    animation-delay: -0.075s;
+  }
+
+  .path-0 {
+    animation-delay: -0.0375s;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
