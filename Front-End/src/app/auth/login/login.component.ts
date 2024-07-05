@@ -13,11 +13,31 @@ export class LoginComponent {
   constructor(private authSrv: AuthService, private router: Router) {}
 
   login(form: NgForm) {
-      try {
-          this.authSrv.login(form.value).subscribe();
-          this.router.navigate(['/']);
-      } catch (error) {
-          console.error(error);
+    this.showLoader();
+    this.authSrv.login(form.value).subscribe({
+      next: () => {
+        this.router.navigate(['/dashboard/players']).then(() => {
+          this.hideLoader();
+        });
+      },
+      error: (error) => {
+        console.error(error);
+        this.hideLoader();
       }
+    });
+  }
+
+  showLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'flex';
+    }
+  }
+
+  hideLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'none';
+    }
   }
 }
