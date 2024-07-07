@@ -30,7 +30,7 @@ Questo progetto è una piattaforma di fantacalcio online innovativa che permette
 ## Funzionalità Principali
 
 1. **Home**: Pagina principale accattivante con una hero.
-<img src="https://github.com/SerNo-dev/FantaNet/assets/131872447/6d8ce53f-3221-41d9-8aaf-f6736f74bdac" width="800" height="800">
+<img width="1438" alt="homehero" src="https://github.com/SerNo-dev/FantaNet/assets/131872447/29ac321d-a1d9-4775-af71-9a4c62705300">
 
 2. **Registrazione**: Component per la registrazione degli utenti.
 
