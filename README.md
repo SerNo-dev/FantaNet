@@ -10,7 +10,8 @@ Questo progetto è una piattaforma di fantacalcio online innovativa che permette
   - Angular
   - HTML
   - CSS
-  - Bootstrap o Tailwind CSS
+  - Bootstrap
+  - SASS
 
 - **Backend**
   - Java con Spring Boot
