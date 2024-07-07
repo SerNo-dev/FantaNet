@@ -71,8 +71,6 @@ Utilizzo della Piattaforma
 
 Una volta avviati entrambi i server, accedere all'applicazione tramite il browser all'indirizzo:
 
-arduino
-
 http://localhost:4200
 
 Deploy
