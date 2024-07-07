@@ -1,4 +1,4 @@
-<img width="1438" alt="homehero" src="https://github.com/SerNo-dev/FantaNet/assets/131872447/259a5ee8-63e2-475a-8c8a-b02da7769b53"># Piattaforma di Fantacalcio Online
+# Piattaforma di Fantacalcio Online
 
 ## Descrizione del Progetto
 
