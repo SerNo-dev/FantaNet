@@ -75,7 +75,8 @@ http://localhost:4200
 
 Deploy
 
-La piattaforma è stata anche deployata con l'utilizzo di Koyeb e Netlify e può essere visualizzata direttamente a questo link:
+La piattaforma è stata anche deployata con l'utilizzo di Koyeb e Netlify e può essere visualizzata
+ direttamente a questo link:
 
 https://main--fantanet.netlify.app/
 
