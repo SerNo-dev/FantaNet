@@ -81,7 +81,7 @@ Deploy
 La piattaforma è stata anche deployata con l'utilizzo di Koyeb e Netlify e può essere visualizzata
  direttamente a questo link:
 
-https://main--fantanet.netlify.app/
+https://fantanet.netlify.app/
 
 Buon divertimento con la piattaforma di fantacalcio!
 
