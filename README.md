@@ -44,31 +44,27 @@ Questo progetto è una piattaforma di fantacalcio online innovativa che permette
 
 ## Istruzioni per l'Installazione
 
-### Clonare la Repository
+### 1.Clonare la Repository
 
-```sh
 git clone <URL-della-repository>
 
-Installazione delle Dipendenze per il Frontend
+### 2.Installazione delle Dipendenze per il Frontend
 
-sh
 
 cd frontend
 npm install
 ng serve
 
-Installazione delle Dipendenze per il Backend
-
-sh
+### 3.Installazione delle Dipendenze per il Backend
 
 cd ../backend
 mvn install
 mvn spring-boot:run
 
-Configurazione del Database
+### 4.Configurazione del Database
 
-    Importare i dati iniziali in PostgreSQL utilizzando gli script forniti.
-    Configurare le credenziali del database nel file application.properties.
+ Importare i dati iniziali in PostgreSQL utilizzando gli script forniti.
+ Configurare le credenziali del database nel file application.properties.
 
 Utilizzo della Piattaforma
 
@@ -81,10 +77,15 @@ Deploy
 La piattaforma è stata anche deployata con l'utilizzo di Koyeb e Netlify e può essere visualizzata
  direttamente a questo link:
 
-https://fantanet.netlify.app/
+[FantaNet](https://fantanet.netlify.app/)
+
+## Diritti d'Autore
+
+Tutti i contenuti di questo sito, inclusi il codice sorgente, la grafica, il design e i dati, sono di proprietà esclusiva di FantaNet e sono protetti dalle leggi sul diritto d'autore e sulla proprietà intellettuale. È vietata la riproduzione, distribuzione, modifica, o utilizzo del contenuto per scopi commerciali senza l'esplicito consenso scritto dell'autore.
 
 Buon divertimento con la piattaforma di fantacalcio!
 
 Per ulteriori informazioni o assistenza, contattami.
+
 
 Sergio
